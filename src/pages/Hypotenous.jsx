@@ -30,6 +30,7 @@ const Hypotenous = () => {
         type="number"
         placeholder="Enter base value a"
         value={firstSideValue}
+        min="1"
         onChange={(e) => setFirstSideValue(e.target.value)}
         required
       />
@@ -38,7 +39,7 @@ const Hypotenous = () => {
         type="number"
         placeholder="Enter height value b"
         min="1"
-        value={setSecondSideValue}
+        value={secondSideValue}
         onChange={(e) => setSecondSideValue(e.target.value)}
         required
       />

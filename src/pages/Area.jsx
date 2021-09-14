@@ -1,34 +1,18 @@
 import React, { useState } from "react";
 
 export const Area = () => {
-  const [firstSideValue, setFirstSideValue] = useState();
-  const [secondSideValue, setSecondSideValue] = useState();
-  const [thirdSideValue, setThirdSideValue] = useState();
+  const [base, setBase] = useState();
+  const [height, setHeight] = useState();
   const [output, setOutput] = useState("");
   const calcArea = (e) => {
     e.preventDefault();
-    if (!firstSideValue || !secondSideValue || !thirdSideValue) {
+    if (!base || !height) {
       output("Please fill up every input field...");
       return;
     }
-    if (
-      firstSideValue + secondSideValue > thirdSideValue &&
-      secondSideValue + thirdSideValue > firstSideValue &&
-      firstSideValue + thirdSideValue > secondSideValue
-    ) {
-      const semiPerimeter =
-        (firstSideValue + secondSideValue + thirdSideValue) / 2;
 
-      const result = Math.sqrt(
-        semiPerimeter *
-          (semiPerimeter - firstSideValue) *
-          (semiPerimeter - secondSideValue) *
-          (semiPerimeter - thirdSideValue)
-      ).toFixed(4);
-      setOutput(`Area of a triangle using heron's formula is ${result} units`);
-    } else {
-      setOutput("Enter valid side lengths such that each side lengths");
-    }
+    const result = (0.5 * base * height).toFixed(4);
+    setOutput(`Area of a triangle is ${result} units`);
   };
   return (
     <main
@@ -42,31 +26,24 @@ export const Area = () => {
         <input
           type="number"
           min="1"
-          placeholder="Enter first side of a triangle"
-          value={firstSideValue}
-          onChange={(e) => setFirstSideValue(e.target.value)}
+          placeholder="Enter the base of the triangle"
+          value={base}
+          onChange={(e) => setBase(e.target.value)}
           required
         />
 
         <input
           type="number"
           min="1"
-          placeholder="Enter second side of a triangle"
-          value={secondSideValue}
-          onChange={(e) => setSecondSideValue(e.target.value)}
+          placeholder="Enter the height of the triangle"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
           required
         />
-        <input
-          type="number"
-          min="1"
-          placeholder="Enter third side of a triangle"
-          value={thirdSideValue}
-          onChange={(e) => setThirdSideValue(e.target.value)}
-          required
-        />
+
         <button type="submit">Calculate</button>
+        <p className="output">{output}</p>
       </form>
-      <p className="output">{output}</p>
     </main>
   );
 };
