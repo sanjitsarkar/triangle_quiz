@@ -37,6 +37,7 @@ export const IsTriangle = () => {
       />
 
       <input
+        min="1"
         type="number"
         placeholder="Angle2"
         value={angle2}
@@ -46,6 +47,7 @@ export const IsTriangle = () => {
         required
       />
       <input
+        min="1"
         type="number"
         placeholder="Angle3"
         value={angle3}

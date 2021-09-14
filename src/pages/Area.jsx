@@ -41,6 +41,7 @@ export const Area = () => {
       <form>
         <input
           type="number"
+          min="1"
           placeholder="Enter first side of a triangle"
           value={firstSideValue}
           onChange={(e) => setFirstSideValue(e.target.value)}
@@ -49,6 +50,7 @@ export const Area = () => {
 
         <input
           type="number"
+          min="1"
           placeholder="Enter second side of a triangle"
           value={secondSideValue}
           onChange={(e) => setSecondSideValue(e.target.value)}
@@ -56,6 +58,7 @@ export const Area = () => {
         />
         <input
           type="number"
+          min="1"
           placeholder="Enter third side of a triangle"
           value={thirdSideValue}
           onChange={(e) => setThirdSideValue(e.target.value)}
